@@ -1,0 +1,113 @@
+@import "./../../../styles/Variables";
+$enabled: #16E0BD;
+
+.player {
+  position: fixed;
+  bottom: 0;
+  background-color: $theme-2;
+  right: 0;
+  left: 0;
+  height: $player-height;
+  display: block;
+
+  .track-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+
+    .track-icon {
+      height: $player-height;
+      width: $player-height;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .track-title {
+      margin-left: $player-height + 5px;
+      color: $font;
+      font-size: 1.4em;
+    }
+
+    .track-artists {
+      margin-left: $player-height + 5px;
+      color: mix($font, $darken, 60);
+      font-size: 1.2em;
+    }
+  }
+
+  .controls {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px auto;
+    font-size: 1.2em;
+
+    .playPause {
+      display: inline-block;
+      $pp-height: 35px;
+      background: rgba($font, 0.9);
+      color: $theme-1;
+      border-radius: 50px;
+      width: $pp-height;
+      height: $pp-height;
+      line-height: $pp-height;
+      text-align: center;
+      margin: 0 20px;
+    }
+
+    .skip {
+      color: $font;
+      margin-right: 20px;
+
+      &.back {
+        margin-right: 0;
+        margin-left: 20px;
+
+        &.disabled {
+          color: mix($theme-1, $font, 90);
+        }
+      }
+    }
+
+    .repeat, .shuffle {
+      color: mix($theme-1, $font);
+
+      .icon-enabled {
+        color: $enabled;
+      }
+    }
+  }
+
+  .trackInfoProgress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: $font;
+      font-size: 12px;
+      margin: 0 10px;
+    }
+
+    .progressBar {
+      width: 50%;
+      border-radius: 50px;
+      height: 7px;
+      background-color: $theme-3;
+      overflow: hidden;
+
+      .progressBar-progress {
+        background-color: white;
+        height: 100%;
+        border-radius: 50px;
+        transition: 1s;
+      }
+    }
+  }
+}

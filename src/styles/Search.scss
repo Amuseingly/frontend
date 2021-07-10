@@ -1,0 +1,227 @@
+@import "Variables";
+
+.panel {
+  position: fixed;
+  left: 240px;
+  top: 0;
+  height: calc(100vh - #{$player-height});
+  width: calc(100vw - 240px);
+  padding: 10px 20px;
+  overflow: auto;
+
+  .searchBox {
+    width: 100%;
+    background-color: $font;
+    border: 1px solid $theme-5;
+    color: $theme-2;
+    border-radius: 50px;
+    font-size: 2em;
+    padding: 5px 10px;
+
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.song {
+  width: 33%;
+  margin-top: 10px;
+  background-color: mix($theme-1, $darken, 40);
+  color: $font;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+
+  .song-icon {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 10px 0 0 10px;
+
+    &.youtube {
+      font-size: 4em;
+      color: #e52d27;
+    }
+
+    .song-icon-play {
+      background: rgba($theme-2, 0.9);
+      border-radius: 50px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+    }
+  }
+
+  .song-title {
+    margin-left: 105px;
+    font-size: 1.5em;
+  }
+
+  .song-artists {
+    margin-left: 105px;
+    font-size: 1.2em;
+    color: mix($font, $darken, 60);
+  }
+}
+
+.dialog-background {
+  width: 100%;
+  height: calc(100vh - #{$player-height});
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: $player-height;
+  background: rgba($darken, 0.8);
+  display: flex;
+  z-index: 2000;
+  color: #caf0f8;
+  display: -webkit-flex;
+  display: flex;
+  overflow-x: auto !important;
+  overflow-y: auto;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  padding: 20px 0;
+  box-sizing: border-box;
+  //noinspection CssInvalidPropertyValue
+  -webkit-justify-content: safe center;
+  justify-content: safe center;
+
+  .dialog {
+    width: 600px;
+    min-height: 50px;
+    position: relative;
+    background: $theme-2;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto 0;
+
+    .search-results {
+      .search-result {
+        height: 100px;
+        width: 100%;
+        margin-top: 10px;
+
+        border-radius: 10px;
+        overflow: hidden;
+        background: $theme-1;
+      }
+
+      .search-results-title {
+        margin-left: 105px;
+        font-size: 1.2em;
+      }
+
+      .search-results-artists {
+        font-size: 1.2em;
+        margin-left: 105px;
+        color: rgba($font, 0.6);
+      }
+
+      .search-results-icon {
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        border-radius: 10px 0 0 10px;
+        font-size: 1.5em;
+
+        .search-results-icon-play {
+          background: rgba($theme-2, 0.9);
+          border-radius: 50px;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+        }
+      }
+    }
+
+    .title {
+      font-size: 2em;
+      color: white;
+    }
+
+    .subtitle {
+      color: white;
+      font-size: 1.3em;
+    }
+
+    .status {
+      margin-top: 10px;
+      border: 1px solid $font;
+
+      font-size: 1.5em;
+      padding: 10px;
+      background: $theme-3;
+      color: $font;
+
+      p {
+        display: inline-block;
+        margin-left: 10px;
+      }
+    }
+
+    .yt-link {
+      box-sizing: border-box;
+      width: calc(100% - 80px);
+      margin: 0;
+      display: inline-block;
+      border-radius: 10px 0 0 10px;
+      border: 1px solid $theme-3;
+      padding: 3px 7px;
+      font-size: 1.5em;
+
+      &:active, &:focus {
+        outline: none;
+      }
+    }
+
+    .yt-search {
+      box-sizing: border-box;
+      width: 80px;
+      margin: 0;
+      color: white;
+      background: $theme-4;
+      display: inline-block;
+      border-radius: 0 10px 10px 0;
+      border: 1px solid $theme-3;
+      padding: 3px;
+      font-size: 1.5em;
+
+      &:hover {
+        background: $theme-3;
+      }
+    }
+
+    button.close {
+      color: white;
+      background: none;
+      border: none;
+      font-size: 3em;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

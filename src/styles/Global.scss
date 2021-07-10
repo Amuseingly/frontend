@@ -1,0 +1,12 @@
+@import "Variables";
+
+html, body, #root {
+  background: $theme-1;
+  height: 100%;
+  font-size: 12px;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+main {
+  height: 100%;
+}

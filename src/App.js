@@ -22,7 +22,7 @@ function App() {
         }
     }
 
-    navigator.mediaSession.setActionHandler("previoustrack", skipBackward)
+    try{navigator.mediaSession.setActionHandler("previoustrack", skipBackward);}catch(ignored){}
 
     const canSkipBackward = () => playingHistory.length > 0;
 

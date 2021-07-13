@@ -53,16 +53,18 @@ export default function Player(props) {
     // Update Media Overlay
     useEffect(() => {
         if (props.playing !== false) {
+	    try {
             document.title = props.playing.title + " | Amuseing";
             navigator.mediaSession.metadata = new window.MediaMetadata({
                 title: props.playing.title,
                 artist: props.playing.all_artists.split(",").join(", "),
                 artwork: [{src: BACKEND_URL + props.playing.iconUrl}]
             });
+            } catch (ignored) {}
         }
     }, [props.playing]);
-    
-    navigator.mediaSession.setActionHandler("nexttrack", next);
+
+    try {navigator.mediaSession.setActionHandler("nexttrack", next);} catch (ignored) {}
 
     const onError = () => setPlaying(false);
     const onPlay = () => setPlaying(true);
